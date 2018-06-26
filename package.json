@@ -1,0 +1,8 @@
+{
+  "name": "burgerbuilder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lyosha85/burgerbuilder.git",
+  "author": "Alex <lyosha85@gmail.com>",
+  "license": "MIT"
+}
