@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Person from "./Person/Person";
-import "./App.css";
+import classes from "./App.css";
 
 class App extends Component {
   state = {
@@ -36,16 +36,10 @@ class App extends Component {
 
   render() {
     let people = null;
-
-    const style = {
-      backgroundColor: "green",
-      padding: "10px",
-      margin: "20px",
-      cursor: "pointer"
-    };
+    let btnClass = "";
 
     if (this.state.showPeople) {
-      style.backgroundColor = "red";
+      btnClass = classes.Red;
       people = (
         <div>
           {this.state.people.map((person, index) => {
@@ -66,17 +60,17 @@ class App extends Component {
     let headerClasses = [];
 
     if (this.state.people.length < 2) {
-      headerClasses.push("red");
+      headerClasses.push(classes.bold);
     }
 
     if (this.state.people.length < 3) {
-      headerClasses.push("bold");
+      headerClasses.push(classes.red);
     }
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <p className={headerClasses.join(" ")}> Hi there</p>
-        <button onClick={this.handlePeopleToggle} style={style}>
+        <button onClick={this.handlePeopleToggle} className={btnClass}>
           {" "}
           {this.state.showPeople ? "Hide" : "Show"}
           {this.state.people.length}
