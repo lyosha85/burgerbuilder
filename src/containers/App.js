@@ -53,11 +53,13 @@ class App extends Component {
           {this.state.people.length}
         </button>
 
-        <People
-          people={this.state.people}
-          changed={this.handleNameChange}
-          clicked={this.deletePersonHandler}
-        />
+        {this.state.showPeople && (
+          <People
+            people={this.state.people}
+            changed={this.handleNameChange}
+            clicked={this.deletePersonHandler}
+          />
+        )}
       </div>
     );
   }
