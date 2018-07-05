@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Person from "./Person/Person";
+import People from "../components/People/People";
 import classes from "./App.css";
-
 class App extends Component {
   state = {
     people: [
@@ -35,28 +34,6 @@ class App extends Component {
   };
 
   render() {
-    let people = null;
-    let btnClass = "";
-
-    if (this.state.showPeople) {
-      btnClass = classes.Red;
-      people = (
-        <div>
-          {this.state.people.map((person, index) => {
-            return (
-              <Person
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={event => this.handleNameChange(event, person.id)}
-                clicked={() => this.deletePersonHandler(index)}
-              />
-            );
-          })}
-        </div>
-      );
-    }
-
     let headerClasses = [];
 
     if (this.state.people.length < 2) {
@@ -70,13 +47,17 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <p className={headerClasses.join(" ")}> Hi there</p>
-        <button onClick={this.handlePeopleToggle} className={btnClass}>
+        <button onClick={this.handlePeopleToggle}>
           {" "}
           {this.state.showPeople ? "Hide" : "Show"}
           {this.state.people.length}
         </button>
 
-        {people}
+        <People
+          people={this.state.people}
+          changed={this.handleNameChange}
+          clicked={this.deletePersonHandler}
+        />
       </div>
     );
   }
