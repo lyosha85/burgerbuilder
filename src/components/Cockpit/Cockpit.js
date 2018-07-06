@@ -1,9 +1,10 @@
 import React from "react";
 import classes from "./Cockpit.css";
+import Aux from "../../hoc/Aux";
 
 const Cockpit = props => {
   let headerClasses = [];
-  let btnClass = "";
+  let btnClass = classes.Button;
 
   if (props.people.length < 2) {
     headerClasses.push(classes.bold);
@@ -14,11 +15,11 @@ const Cockpit = props => {
   }
 
   if (props.showPeople) {
-    btnClass = classes.Red;
+    btnClass = [classes.Button, classes.Red].join(" ");
   }
 
   return (
-    <div className={classes.Cockpit}>
+    <Aux>
       <h1>{props.appTitle}</h1>
       <p className={headerClasses.join(" ")}> Hi there</p>
       <button onClick={props.clicked} className={btnClass}>
@@ -26,7 +27,7 @@ const Cockpit = props => {
         {props.showPeople ? "Hide" : "Show"}
         {props.people.length}
       </button>
-    </div>
+    </Aux>
   );
 };
 export default Cockpit;
