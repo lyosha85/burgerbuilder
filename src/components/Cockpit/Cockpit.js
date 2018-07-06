@@ -19,6 +19,7 @@ const Cockpit = props => {
 
   return (
     <div className={classes.Cockpit}>
+      <h1>{props.appTitle}</h1>
       <p className={headerClasses.join(" ")}> Hi there</p>
       <button onClick={props.clicked} className={btnClass}>
         {" "}
