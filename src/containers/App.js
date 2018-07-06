@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import People from "../components/People/People";
+import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
 class App extends Component {
   state = {
@@ -34,25 +35,13 @@ class App extends Component {
   };
 
   render() {
-    let headerClasses = [];
-
-    if (this.state.people.length < 2) {
-      headerClasses.push(classes.bold);
-    }
-
-    if (this.state.people.length < 3) {
-      headerClasses.push(classes.red);
-    }
-
     return (
       <div className={classes.App}>
-        <p className={headerClasses.join(" ")}> Hi there</p>
-        <button onClick={this.handlePeopleToggle}>
-          {" "}
-          {this.state.showPeople ? "Hide" : "Show"}
-          {this.state.people.length}
-        </button>
-
+        <Cockpit
+          people={this.state.people}
+          clicked={this.handlePeopleToggle}
+          showPeople={this.state.showPeople}
+        />
         {this.state.showPeople && (
           <People
             people={this.state.people}
