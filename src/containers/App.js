@@ -15,7 +15,8 @@ class App extends Component {
         { id: 2, name: "Sarah", age: 24 }
       ],
       otherState: "some other state",
-      showPeople: true
+      showPeople: true,
+      toggleClickedCount: 0
     };
   }
 
@@ -31,7 +32,12 @@ class App extends Component {
   };
 
   handlePeopleToggle = () => {
-    this.setState({ showPeople: !this.state.showPeople });
+    this.setState((prevState, props) => {
+      return {
+        showPeople: !prevState.showPeople,
+        toggleClickedCount: prevState.toggleClickedCount + 1
+      };
+    });
   };
 
   deletePersonHandler = index => {
