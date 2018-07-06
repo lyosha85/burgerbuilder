@@ -3,15 +3,18 @@ import People from "../components/People/People";
 import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
 class App extends Component {
-  state = {
-    people: [
-      { id: 0, name: "Alex", age: 22 },
-      { id: 1, name: "Manu", age: 23 },
-      { id: 2, name: "Sarah", age: 24 }
-    ],
-    otherState: "some other state",
-    showPeople: true
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      people: [
+        { id: 0, name: "Alex", age: 22 },
+        { id: 1, name: "Manu", age: 23 },
+        { id: 2, name: "Sarah", age: 24 }
+      ],
+      otherState: "some other state",
+      showPeople: true
+    };
+  }
 
   handleNameChange = (event, id) => {
     const personIndex = this.state.people.findIndex(p => {
