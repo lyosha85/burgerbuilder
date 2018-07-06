@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import People from "../components/People/People";
 import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
+import WithClass from "../hoc/withClass";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={classes.App}>
+      <WithClass classes={classes.App}>
         <Cockpit
           appTitle={this.props.title}
           people={this.state.people}
@@ -53,7 +55,7 @@ class App extends Component {
             clicked={this.deletePersonHandler}
           />
         )}
-      </div>
+      </WithClass>
     );
   }
 }
