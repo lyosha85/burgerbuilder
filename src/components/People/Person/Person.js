@@ -24,6 +24,7 @@ class Person extends Component {
   render() {
     return (
       <Aux classes={classes.Person}>
+        {this.props.authenticated ? <p> I'm authneticated </p> : null}
         <p onClick={this.props.clicked}> Hi, my name is {this.props.name} </p>
         <input
           ref={this.nameInputElement}

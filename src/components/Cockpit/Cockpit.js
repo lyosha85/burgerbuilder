@@ -27,6 +27,7 @@ const Cockpit = props => {
         {props.showPeople ? "Hide" : "Show"}
         {props.people.length}
       </button>
+      <button onClick={props.login}> Login </button>
     </Aux>
   );
 };
