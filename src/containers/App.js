@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import Layout from "../components/Layout";
 
 class App extends Component {
   render() {
-    return <h1> Welcome! </h1>;
+    return (
+      <Layout>
+        <p> Hi </p>
+      </Layout>
+    );
   }
 }
 
