@@ -6,9 +6,14 @@ import Aux from "../../../hoc/Aux";
 import withClass from "../../../hoc/withClass";
 
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.nameInputElement = React.createRef();
+  }
+
   componentDidMount() {
     if (this.props.position === 0) {
-      this.nameInputElement.focus();
+      this.nameInputElement.current.focus();
     }
   }
   render() {
@@ -16,9 +21,7 @@ class Person extends Component {
       <Aux classes={classes.Person}>
         <p onClick={this.props.clicked}> Hi, my name is {this.props.name} </p>
         <input
-          ref={inp => {
-            this.nameInputElement = inp;
-          }}
+          ref={this.nameInputElement}
           value={this.props.name}
           onChange={this.props.changed}
         />
