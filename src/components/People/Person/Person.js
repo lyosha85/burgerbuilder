@@ -16,6 +16,11 @@ class Person extends Component {
       this.nameInputElement.current.focus();
     }
   }
+
+  focus() {
+    this.nameInputElement.current.focus();
+  }
+
   render() {
     return (
       <Aux classes={classes.Person}>
