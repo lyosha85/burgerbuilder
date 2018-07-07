@@ -21,7 +21,6 @@ class People extends Component {
           clicked={() => this.props.clicked(index)}
           position={index}
           ref={this.lastPersonRef}
-          authenticated={this.props.isAuthenticated}
         />
       );
     });

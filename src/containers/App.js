@@ -5,6 +5,8 @@ import classes from "./App.css";
 import Aux from "../hoc/Aux";
 import withClass from "../hoc/withClass";
 
+export const AuthContext = React.createContext(false);
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -61,14 +63,15 @@ class App extends Component {
           showPeople={this.state.showPeople}
           login={this.loginHandler}
         />
-        {this.state.showPeople && (
-          <People
-            people={this.state.people}
-            changed={this.handleNameChange}
-            clicked={this.deletePersonHandler}
-            isAuthenticated={this.state.authenticated}
-          />
-        )}
+        <AuthContext.Provider value={this.state.authenticated}>
+          {this.state.showPeople && (
+            <People
+              people={this.state.people}
+              changed={this.handleNameChange}
+              clicked={this.deletePersonHandler}
+            />
+          )}
+        </AuthContext.Provider>
       </Aux>
     );
   }

@@ -5,6 +5,8 @@ import classes from "./Person.css";
 import Aux from "../../../hoc/Aux";
 import withClass from "../../../hoc/withClass";
 
+import { AuthContext } from "../../../containers/App";
+
 class Person extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,9 @@ class Person extends Component {
   render() {
     return (
       <Aux classes={classes.Person}>
-        {this.props.authenticated ? <p> I'm authneticated </p> : null}
+        <AuthContext.Consumer>
+          {auth => (auth ? <p> I'm authneticated </p> : null)}
+        </AuthContext.Consumer>
         <p onClick={this.props.clicked}> Hi, my name is {this.props.name} </p>
         <input
           ref={this.nameInputElement}
